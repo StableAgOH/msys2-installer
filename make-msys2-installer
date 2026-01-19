@@ -87,6 +87,8 @@ create_chroot_system() {
     pacman -S filesystem msys2-runtime --noconfirm --root "${_newmsys}"
     pacman -S base --noconfirm --root "${_newmsys}"
     pacman -Q --root "${_newmsys}" > "${_thisdir}/msys2-base-${_arch_name}-${_date}.packages.txt"
+
+    sed -i "s#https\?://mirror.msys2.org/#https://mirrors.bfsu.edu.cn/msys2/#g" /etc/pacman.d/mirrorlist*
   popd > /dev/null
 }
 
