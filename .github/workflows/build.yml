@@ -4,8 +4,6 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-  schedule:
-    - cron: '0 3 * * *'
 
 concurrency: nope
 permissions:
@@ -243,3 +241,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release upload nightly-x86_64 msys2-* --clobber -R ${{ github.repository }}
+
